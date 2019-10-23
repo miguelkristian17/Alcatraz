@@ -1,15 +1,14 @@
 package com.ryan.study.Alcatraz.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
@@ -19,30 +18,27 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="developers")
 public class Developer {
-	 @Id
-	 @GeneratedValue(strategy=GenerationType.IDENTITY)
-	 private Long id;
-	 @Size(min=5,max=200)
-	 @NotNull
-	 @Email(message="Email must be valid")
-	 private String email;
-	 @NotNull
-	 @Size(min=5,max=200,message="name must be greater than 5 char")
-	 private String name;
-	 @NotNull
-	 @Size(min=5, max=200, message="Password must be greater than 5 char")
-	 private String password;
-	 @NotNull
-	 @Transient
-	 private String passwordConfirmation;
-	 @Column(updatable=false)
-	 private Date createdAt;
-	 private Date updatedAt;
-	 
-	 
-	 public Developer() {
-		 
-	 }
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	@NotNull
+	@Size(min=1, max=60)
+	private String name;
+	@NotNull
+	@Email(message="Email must be valid!")
+	private String email;
+	@Size(min=8, message="Password must be greater than 8 characters!")
+	@NotNull
+	private String password;
+	@Transient
+	private String passwordConfirmation;
+	@Column (updatable=false)
+	private Date createdAt;
+	private Date updatedAt;
+	
+	public Developer() {
+		
+	}
 
 	public Long getId() {
 		return id;
@@ -52,20 +48,20 @@ public class Developer {
 		this.id = id;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -99,8 +95,13 @@ public class Developer {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
-
+	
+	@PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();
+    }
 }
-
-
