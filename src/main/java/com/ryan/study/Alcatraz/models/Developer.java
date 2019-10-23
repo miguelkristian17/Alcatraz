@@ -39,8 +39,6 @@ public class Developer {
 	 private Date createdAt;
 	 private Date updatedAt;
 	 
-	 @OneToMany(mappedBy="developer",fetch = FetchType.LAZY)
-	 private List<User> users; 
 	 
 	 public Developer() {
 		 
@@ -102,14 +100,6 @@ public class Developer {
 		this.updatedAt = updatedAt;
 	}
 
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-	 
 
 }
 
