@@ -2,13 +2,13 @@ package com.ryan.study.Alcatraz.models;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
@@ -16,8 +16,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="developers")
-public class Developer {
+@Table(name = "users")
+public class User {
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 private Long id;
@@ -34,13 +34,13 @@ public class Developer {
 	 @NotNull
 	 @Transient
 	 private String passwordConfirmation;
-	 @OneToMany(mappedBy="developers", fetch = FetchType.LAZY)
-	 private List<Project> projects;
-	 @Column(updatable=false)
+	 @ManyToOne(fetch = FetchType.LAZY)
+	 @JoinColumn(name="user_pools_id")
+	 private UserPool userpool;
 	 private Date createdAt;
 	 private Date updatedAt;
 	 
-	 public Developer() {
+	 public User(){
 		 
 	 }
 
@@ -52,20 +52,20 @@ public class Developer {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPassword() {
@@ -84,12 +84,12 @@ public class Developer {
 		this.passwordConfirmation = passwordConfirmation;
 	}
 
-	public List<Project> getProjects() {
-		return projects;
+	public UserPool getUserpool() {
+		return userpool;
 	}
 
-	public void setProjects(List<Project> projects) {
-		this.projects = projects;
+	public void setUserpool(UserPool userpool) {
+		this.userpool = userpool;
 	}
 
 	public Date getCreatedAt() {
@@ -107,13 +107,5 @@ public class Developer {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
-	@PrePersist
-    protected void onCreate(){
-        this.createdAt = new Date();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-        this.updatedAt = new Date();
-    }
+	 
 }
