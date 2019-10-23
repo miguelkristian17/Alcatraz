@@ -20,7 +20,7 @@
 			<p><form:errors path="user.*"/></p>
 			<div class="row">
 				<div class="col-sm-9">
-					<form:form action="/registration" method="post" modelAttribute="user">
+					<form:form action="/registration" method="post" modelAttribute="developer">
 						<div class="form-group">
 							 <form:label path="name">Name:</form:label>
 	           				 <form:input path="name" class="form-control"/>
