@@ -34,9 +34,12 @@ public class User {
 	 @NotNull
 	 @Transient
 	 private String passwordConfirmation;
+	 
 	 @ManyToOne(fetch = FetchType.LAZY)
 	 @JoinColumn(name="user_pools_id")
-	 private UserPool userpool;
+	 private UserPool userpools;
+	 
+	 
 	 private Date createdAt;
 	 private Date updatedAt;
 	 
@@ -84,12 +87,13 @@ public class User {
 		this.passwordConfirmation = passwordConfirmation;
 	}
 
-	public UserPool getUserpool() {
-		return userpool;
+
+	public UserPool getUserpools() {
+		return userpools;
 	}
 
-	public void setUserpool(UserPool userpool) {
-		this.userpool = userpool;
+	public void setUserpools(UserPool userpools) {
+		this.userpools = userpools;
 	}
 
 	public Date getCreatedAt() {

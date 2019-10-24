@@ -24,11 +24,13 @@ public class Project {
     private String projectName;
 	@Size(min=8,max=200,message="Description must be greater than 8 characters!")
     private String description;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="developer_id")
+    
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="developer_id")
     private Developer developer;
-	@OneToMany(mappedBy="user_pools", fetch = FetchType.LAZY)
-    private List<User> userpools;
+	
+	@OneToMany(mappedBy="project", fetch = FetchType.LAZY)
+    private List<UserPool> userpools;
 	
 	public Project() {
 		
@@ -58,6 +60,7 @@ public class Project {
 		this.description = description;
 	}
 
+	
 	public Developer getDeveloper() {
 		return developer;
 	}
@@ -66,12 +69,13 @@ public class Project {
 		this.developer = developer;
 	}
 
-	public List<User> getUserpools() {
+	public List<UserPool> getUserpools() {
 		return userpools;
 	}
 
-	public void setUserpools(List<User> userpools) {
+	public void setUserpools(List<UserPool> userpools) {
 		this.userpools = userpools;
 	}
+
 	
 }
