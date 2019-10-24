@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+	margin: 0 auto;
+    width: 970px;
+    background-color: #212121;
+    padding: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#registration{
+	width: 450px;
+	margin-left: 40px;
+}
+
+#login{
+	width: 450px;
+}
