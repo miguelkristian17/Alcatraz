@@ -46,7 +46,7 @@ public class DeveloperController {
 		// else, save the developer in the database, save the developer id in session, and redirect them to the /home route
 		Developer d = developerService.registerDeveloper(developer);
 		session.setAttribute("developerId", d.getId());
-		return "redirect:/ideas";
+		return "redirect:/projects";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
@@ -56,7 +56,7 @@ public class DeveloperController {
 		if(isAuthenticated) {
 			Developer d = developerService.findByEmail(email);
 			session.setAttribute("developerId", d.getId());
-			return "redirect:/ideas";
+			return "redirect:/projects";
 		}
 		// else, add error messages and return the login page
 		else {

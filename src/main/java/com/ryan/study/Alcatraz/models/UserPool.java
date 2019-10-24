@@ -21,10 +21,12 @@ public class UserPool {
 	 private Long id;
 	 @Size(min=5,max=200,message="name must be greater than 5 char")
 	 private String name;
+	 
 	 @ManyToOne(fetch = FetchType.LAZY)
 	 @JoinColumn(name="project_id")
 	 private Project project;
-	 @OneToMany(fetch = FetchType.LAZY)
+	 
+	 @OneToMany(mappedBy="userpools", fetch = FetchType.LAZY)
 	 private List<User> users;
 	 
 	 public UserPool() {
