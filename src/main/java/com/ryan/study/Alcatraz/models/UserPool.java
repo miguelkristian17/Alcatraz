@@ -32,6 +32,10 @@ public class UserPool {
 	 public UserPool() {
 		 
 	 }
+	 
+	 public UserPool(String name) {
+		 this.name = name;
+	 }
 
 	public Long getId() {
 		return id;

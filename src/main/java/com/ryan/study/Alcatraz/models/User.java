@@ -43,9 +43,15 @@ public class User {
 	 private Date createdAt;
 	 private Date updatedAt;
 	 
-	 public User(){
-		 
+	public User() {
+		
+	}
+	public User(String email,String name, String password ){
+		this.email = email;
+		this.name = name;
+		this.password = password;
 	 }
+	 
 
 	public Long getId() {
 		return id;
