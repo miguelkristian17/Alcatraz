@@ -4,10 +4,15 @@
 }
 
 #wrapper{
-	margin: 0 auto;
-    width: 970px;
-    background-color: linen;
-    padding: 30px;
+    width: 100%;
+  	height: auto;
+  	min-height: 35rem;
+  	padding: 30px;
+  	background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("/img/alcatraz.jpg");
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-attachment: scroll;
+  	background-size: cover;
     display: flex;
     justify-content: space-evenly;
 }
@@ -20,3 +25,22 @@
 #login{
 	width: 450px;
 }
+
+#btn-1{
+	background: rgba(30, 60, 24, 0.92);
+	color: white;
+}
+
+.display-4{
+	color: white;
+}
+
+.form-group{
+	color: white;
+}
+
+#btn-2{
+	background: rgba(67, 128, 55, 0.92);
+	color: white;
+}
+

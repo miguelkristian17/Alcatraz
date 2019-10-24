@@ -1,6 +1,7 @@
 package com.ryan.study.Alcatraz.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.ryan.study.Alcatraz.services.DeveloperService;
 import com.ryan.study.Alcatraz.services.ProjectService;
@@ -19,5 +20,20 @@ public class AnnaController {
 		this.projectService = projectService;
 		this.userService = userService;
 		this.userpoolService = userpoolService;
+	}
+	
+	@GetMapping("/dashboard")
+	public String dashboard() {
+		return "dashboard.jsp";
+	}
+	
+	@GetMapping("/newproj")
+	public String newProject() {
+		return "new_project.jsp";
+	}
+	
+	@GetMapping("/newup")
+	public String newUP() {
+		return "new_user_pool.jsp";
 	}
 }
