@@ -37,7 +37,7 @@
 							<form:label path="passwordConfirmation">Password Confirmation:</form:label>
             				<form:password path="passwordConfirmation" class="form-control"/>
 						</div>
-						<input type="submit" value="Register!" class="btn btn-md btn-success"/>
+						<input type="submit" value="Register!" class="btn btn-md" id="btn-1"/>
 					</form:form>
 				</div>
 			</div>
@@ -56,7 +56,7 @@
 							<label for="password">Password: </label>
             				<input type="password" id="password" name="password" class="form-control"/>
 						</div>
-						<input type="submit" value="Login!" class="btn btn-md btn-danger"/>
+						<input type="submit" value="Login!" class="btn btn-md" id="btn-2"/>
 					</form>
 				</div>
 			</div>
