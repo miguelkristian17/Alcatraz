@@ -28,6 +28,7 @@ public class DeveloperService {
         return developerRepository.findByEmail(email);
     }
     
+    
     // find developer by id
     public Developer findDeveloperById(Long id) {
     	Optional<Developer> d = developerRepository.findById(id);

@@ -41,7 +41,7 @@ public class AnnaController {
 		Long developerId = (Long) session.getAttribute("developerId");
 		Developer d = developerService.findDeveloperById(developerId);
 		model.addAttribute("developer", d);
-		List<Project> projects = projectService.getAllProjects();
+		List<Project> projects = projectService.getAllProjectsByDeveloper(d);
 		model.addAttribute("projects", projects);
 		return "dashboard.jsp";
 	}
