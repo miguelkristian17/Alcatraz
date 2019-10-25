@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "projects")
@@ -28,7 +30,6 @@ public class Project {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="developer_id")
     private Developer developer;
-	
 	@OneToMany(mappedBy="project", fetch = FetchType.LAZY)
     private List<UserPool> userpools;
 	

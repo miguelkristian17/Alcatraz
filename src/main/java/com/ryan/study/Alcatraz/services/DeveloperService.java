@@ -39,6 +39,17 @@ public class DeveloperService {
     	}
     }
     
+    // find developer by devID
+    public Developer findDeveloperByDevID(Long id) {
+    	Optional<Developer> developer = developerRepository.findByDevID(id);
+    	if(developer.isPresent()) {
+            return developer.get();
+    	} else {
+    	    return null;
+    	}
+    }
+    
+    
     // authenticate developer
     public boolean authenticateDeveloper(String email, String password) {
         // first find the developer by email

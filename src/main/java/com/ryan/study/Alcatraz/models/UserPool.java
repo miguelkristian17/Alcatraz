@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "user_pools")
 public class UserPool {
@@ -21,7 +23,7 @@ public class UserPool {
 	 private Long id;
 	 @Size(min=5,max=200,message="name must be greater than 5 char")
 	 private String name;
-	 
+		@JsonBackReference
 	 @ManyToOne(fetch = FetchType.LAZY)
 	 @JoinColumn(name="project_id")
 	 private Project project;
