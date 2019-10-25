@@ -15,15 +15,16 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "users")
 public class User {
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 private Long id;
-	 @Size(min=5,max=200)
 	 @NotNull
-	 @Email(message="Email must be valid")
+	 @Email(message ="Email must be Valid!")
 	 private String email;
 	 @NotNull
 	 @Size(min=5,max=200,message="name must be greater than 5 char")
@@ -31,18 +32,18 @@ public class User {
 	 @NotNull
 	 @Size(min=5, max=200, message="Password must be greater than 5 char")
 	 private String password;
-	 @NotNull
 	 @Transient
 	 private String passwordConfirmation;
-	 
+	 @JsonBackReference
+
 	 @ManyToOne(fetch = FetchType.LAZY)
 	 @JoinColumn(name="user_pools_id")
 	 private UserPool userpools;
 	 
-	 
+	 private String token;
+
 	 private Date createdAt;
 	 private Date updatedAt;
-	 
 	public User() {
 		
 	}
@@ -102,6 +103,12 @@ public class User {
 		this.userpools = userpools;
 	}
 
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
 	public Date getCreatedAt() {
 		return createdAt;
 	}

@@ -35,6 +35,16 @@ public class ProjectService {
             return null;
         }
     }
+    
+	//Get an instance of a project by project name
+    public Project findProjectByName(String projectName) {
+        Optional<Project> optionalProject = this.projectRepository.findProjectByProjectName(projectName);
+        if(optionalProject.isPresent()) {
+            return optionalProject.get();
+        } else {
+            return null;
+        }
+    }
     // Updates an instance of a project
     public Project updateProject(Long id, String projectName, String description) {
     	Optional<Project> optionalProject = projectRepository.findById(id);

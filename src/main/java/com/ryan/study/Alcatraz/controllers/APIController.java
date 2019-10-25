@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ryan.study.Alcatraz.models.Developer;
 import com.ryan.study.Alcatraz.models.Project;
 import com.ryan.study.Alcatraz.models.User;
 import com.ryan.study.Alcatraz.models.UserPool;
@@ -32,9 +33,11 @@ public class APIController {
 	// PROJECT  **************************************************************
 	
 	// Creates a project
-	@RequestMapping(value = "/api/project", method = RequestMethod.POST)
-	public Project createProject(@RequestParam(value = "projectName") String projectName, @RequestParam(value = "description") String description){
+	@RequestMapping(value = "/api/{id}/project", method = RequestMethod.POST)
+	public Project createProject(@PathVariable("id") Long id, @RequestParam(value = "projectName") String projectName, @RequestParam(value = "description") String description){
 		Project project =  new Project(projectName, description);
+		Developer developer = this.developerService.findDeveloperById(id);
+		project.setDeveloper(developer);
 		return this.projectService.createProject(project);	
 	}
 	
@@ -64,10 +67,14 @@ public class APIController {
 	// USER POOL  **************************************************************
 	
 	// Creates a User Pool 
-	@RequestMapping(value ="/api/userPool" , method = RequestMethod.POST)
-	public UserPool createUserPool(@RequestParam("name") String name){
+	@RequestMapping(value ="/api/{id}/userPool" , method = RequestMethod.POST)
+	public UserPool createUserPool(@PathVariable("id") Long id, @RequestParam("name") String name){
+		Project project = this.projectService.findProjectById(id);
+		System.out.println(project);
 		UserPool userPool =  new UserPool(name);
-		return this.userpoolService.createUserPool(userPool);	
+		userPool.setProject(project);
+		userPool = this.userpoolService.createUserPool(userPool);
+		return userPool;	
 	}
 	
 	// Gets all user pools
@@ -106,12 +113,26 @@ public class APIController {
 		return this.userService.findUserById(id);
 		
 	}
-
-		
+	// Create a user
+	@RequestMapping(value ="/api/{id}/user" , method = RequestMethod.POST)
+	public User createUser(@PathVariable("id") Long id, @RequestParam("email") String email,@RequestParam("name") String name,  @RequestParam("password") String password){
+		UserPool userPool = this.userpoolService.findUserPoolById(id);
+		User user = new User(email, name, password);
+		user.setUserpools(userPool);
+		user = this.userService.createUser(user);
+		return user;	
+	}
 	// Delete an instance of a user pool
 	@RequestMapping(value = "api/user/{id}", method = RequestMethod.DELETE)
 	public void deleteUser(@PathVariable("id") Long id) {
 		this.userService.deleteUserById(id);
 	}
+	
+//	@RequestMapping(value = "api/developer/{id}", method = RequestMethod.GET)
+//	public Developer showDeveloper(@PathVariable("id") Long id) {
+//		return this.developerService.findDeveloperByID(id);
+//		
+//	}
+		
 	
 }

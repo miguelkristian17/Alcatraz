@@ -18,12 +18,16 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="developers")
 public class Developer {
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 private Long id;
+	 @GeneratedValue(strategy=GenerationType.IDENTITY)
+	 private Long devID = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
 	 @Size(min=5,max=200)
 	 @NotNull
 	 @Email(message="Email must be valid")
@@ -38,7 +42,7 @@ public class Developer {
 	 @Transient
 	 private String passwordConfirmation;
 	 
-	 
+	 @JsonBackReference
 	 @OneToMany(mappedBy="developer", fetch = FetchType.LAZY)
 	 private List<Project> projects;
 	 
@@ -57,7 +61,13 @@ public class Developer {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	 public Long getDevID() {
+		return devID;
+	}
 
+	public void setDevID(Long devID) {
+		this.devID = devID;
+	}
 	public String getName() {
 		return name;
 	}
