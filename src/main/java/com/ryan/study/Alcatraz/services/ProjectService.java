@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.ryan.study.Alcatraz.models.Developer;
 import com.ryan.study.Alcatraz.models.Project;
 import com.ryan.study.Alcatraz.repositories.ProjectRepository;
 
@@ -19,6 +20,10 @@ public class ProjectService {
 	//Get all instances of projects
 	public List<Project> getAllProjects(){
 		return this.projectRepository.findAll();
+	}
+	
+	public List<Project> getAllProjectsByDeveloper(Developer dev){
+		return this.projectRepository.findAllByDeveloper(dev);
 	}
 	
 	// Creates an instance of a project
