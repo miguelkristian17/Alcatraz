@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<%@ page isErrorPage="true" %>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,23 +51,23 @@
       			<h1 class="display-4">Create a New Userpool</h1>
       			<div class="row">
 					<div class="col-sm-9">
-						<form>
+						<form:form action="/userpools" method="post" modelAttribute="userpools">
 							<div class="form-group">
-								<label for="exampleInputEmail1">User Pool Name</label>
-    							<input class="form-control" id="userpool_name"placeholder="User Pool Name">
+								<form:label path="name">User Pool Name</form:label>
+					        	<form:errors path="name"/>
+					        	<form:input path="name" class="form-control" id="userpool_name" placeholder="User Pool Name"/>
 							</div>
 							<div class="form-group">
-								<label for="FormControlSelect">Project</label>
-							    <select class="form-control" id="exampleFormControlSelect1">
-							      <option>Project 1</option>
-							      <option>Project 2</option>
-							      <option>Project 3</option>
-							      <option>Project 4</option>
-							      <option>Project 5</option>
-							    </select>
+								<form:label path="project">Project</form:label>
+								<form:errors path="project"/>
+								<form:select path="project" class="form-control">
+									<c:forEach items = "${allProjects}" var="proj">
+										<form:option value="${proj.id}"><c:out value="${proj.projectName}"/></form:option>							
+									</c:forEach>
+								</form:select>
     						</div>
 							<input type="submit" value="Create User Pool!" class="btn btn-md" id="btn-1"/>
-						</form>
+						</form:form>
 						<br>
 					</div>
 				</div>

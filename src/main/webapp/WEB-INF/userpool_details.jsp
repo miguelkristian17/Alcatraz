@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>New Project Page</title>
+	<title>User Pool Details</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/new_project_style.css">
+	<link rel="stylesheet" href="/css/userpool_details_style.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow" id="top">
@@ -45,23 +44,25 @@
 	<div class="container">
   		<div class="card border-0 shadow my-5" id="overlay">
     		<div class="card-body p-5">
-      			<h1 class="display-4">Create a New Project</h1>
+      			<h1 class="display-4">User Pool: <c:out value="${userpool.name}"/></h1>
       			<div class="row">
 					<div class="col-sm-9">
-						<form:form action="/projects" method="post" modelAttribute="projects">
-							<div class="form-group">
-								<form:label path="projectName">Project Name</form:label>
-						        <form:errors path="projectName"/>
-						        <form:input path="projectName" class="form-control" id="project_name" placeholder="Project Name"/>
-							</div>
-							<div class="form-group">
-								<form:label path="description">Project Name</form:label>
-						        <form:errors path="description"/>
-						        <form:input path="description" class="form-control" id="project_description" placeholder="Project Description"/>
-    						</div>
-							<input type="submit" value="Create New Project!" class="btn btn-md" id="btn-1"/>
-						</form:form>
-						<br>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">User Name</th>
+									<th scope="col">User Email</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${userpool.users}" var="user">
+									<tr>
+										<td><c:out value="${user.name}"/></td>
+										<td><c:out value="${user.email}"/></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 				</div>
       		<div style="height: auto;"></div>

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,22 +44,25 @@
 	<div class="container">
   		<div class="card border-0 shadow my-5" id="overlay">
     		<div class="card-body p-5">
-      			<h1 class="display-4">Welcome Back Developer!</h1>
-      		<div style="height: auto">
+      			<h1 class="display-4">Welcome, <c:out value="${developer.name}"/>!</h1>
+      			<h2 class="display-6">ID Number: <c:out value="${developer.devID}"/></h2>
       			<div class="project">
-      				<h1 class="font-weight-light">Project Name</h1>
+      				<c:forEach items="${projects}" var="project">
+      				<h1 class="font-weight-light"><c:out value="${project.projectName}"/></h1>
 	      			<div class="card" style="width: 18rem;">
 	  					<div class="card-body">
-	    					<h5 class="card-title">User Pool Name</h5>
-	    					<p class="card-text">Example Text</p>
+	    					<h5 class="card-title">This projects user pools: </h5>
+	  						<c:forEach items="${project.userpools}" var="pu">
+	    					<p class="card-text"><a href="/up/${pu.id}"><c:out value="${pu.name}"/></a></p>
+		  					</c:forEach>
 	  					</div>
 					</div>
 					<br>
    					<a href="/newup" class="btn" role="button">Add User Pool</a>
+   					</c:forEach>
       			</div>
       		</div>
     	</div>
-  		</div>
 	</div>
 </body>
 </html>
