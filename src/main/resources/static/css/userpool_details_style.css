@@ -18,13 +18,8 @@ body {
 	font-size: 50px;
 }
 
-.btn{
-	background-color: green;
-	color: white;
-	margin-bottom: 10px;
-}
-
-h2{
-	font-size: 18px;
+#btn-1{
+	background: rgba(67, 128, 55, 0.92);
+	color: white;	
 }
 
