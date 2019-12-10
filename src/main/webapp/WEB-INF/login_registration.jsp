@@ -42,6 +42,7 @@
 				</div>
 			</div>
 		</div>
+		<div id="middle"></div>
 		<div id="login">
 			<h1 class="display-4">Login</h1>
 			<p><c:out value="${error}"/></p>

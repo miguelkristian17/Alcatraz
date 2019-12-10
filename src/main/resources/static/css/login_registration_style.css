@@ -3,9 +3,9 @@
     padding: 0px;
 }
 
+
 #wrapper{
-    width: 100%;
-  	height: auto;
+  	border-radius: 10px;
   	min-height: 35rem;
   	padding: 30px;
   	background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("/img/alcatraz.jpg");
@@ -18,12 +18,21 @@
 }
 
 #registration{
-	width: 450px;
-	margin-left: 40px;
+	width: 600px;
+	border: dotted red 1px;
+	padding-left: 50px;
+}
+
+#middle{
+	border: dotted red 1px;
+	width: 5px;
+	background-color: green;
 }
 
 #login{
-	width: 450px;
+	width: 600px;
+	border: dotted red 1px;
+	padding-left: 50px;
 }
 
 #btn-1{
