@@ -14,54 +14,52 @@
 	<link rel="stylesheet" href="/css/login_registration_style.css">
 </head>
 <body>
-	<div id="wrapper" class="container">
-		<div id="registration">
-			<h1 class="display-4">Register</h1>
-			<p><form:errors path="user.*"/></p>
-			<div class="row">
-				<div class="col-sm-9">
-					<form:form action="/registration" method="post" modelAttribute="developer">
-						<div class="form-group">
-							 <form:label path="name">Name:</form:label>
-	           				 <form:input path="name" class="form-control"/>
-						</div>
-						<div class="form-group">
-							 <form:label path="email">Email:</form:label>
-	           				 <form:input type="email" path="email" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<form:label path="password">Password:</form:label>
-            				<form:password path="password" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<form:label path="passwordConfirmation">Password Confirmation:</form:label>
-            				<form:password path="passwordConfirmation" class="form-control"/>
-						</div>
-						<input type="submit" value="Register!" class="btn btn-md" id="btn-1"/>
-					</form:form>
-				</div>
-			</div>
+	<div id="container" class="container">
+		<div class="form-container sign-up-container">
+			<form:form action="/registration" method="post" modelAttribute="developer">
+				<h1>Create Account</h1>
+				
+         		<form:input path="name" class="form-control" placeholder="Name"/>
+			
+			
+         		<form:input type="email" path="email" class="form-control" placeholder="Email"/>
+			
+			
+       			<form:password path="password" class="form-control" placeholder="Password"/>
+			
+			
+         		<form:password path="passwordConfirmation" class="form-control" placeholder="Confirm Password"/>
+				
+				<button>Register!</button>
+			</form:form>
 		</div>
-		<div id="middle"></div>
-		<div id="login">
-			<h1 class="display-4">Login</h1>
-			<p><c:out value="${error}"/></p>
-			<div class="row">
-				<div class="col-sm-9">
-					<form action="/login" method="post">
-						<div class="form-group">
-							<label for="email">Email: </label>
-            				<input type="text" id="email" name="email" class="form-control"/>
-						</div>
-						<div class="form-group">
-							<label for="password">Password: </label>
-            				<input type="password" id="password" name="password" class="form-control"/>
-						</div>
-						<input type="submit" value="Login!" class="btn btn-md" id="btn-2"/>
-					</form>
+		<div class="form-container sign-in-container">
+			<form action="/login" method="post">
+				<h1>Sign In</h1>
+				<p><c:out value="${error}"/></p>
+				
+         		<input type="text" id="email" name="email" class="form-control" placeholder="Email"/>
+         		
+         		<input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
+				
+				<button>Sign In!</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Welcome Back!</h1>
+					<p>Please sign in with your login information.</p>
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hello!</h1>
+					<p>Enter your details and start your journey with us!</p>
+					<button class="ghost" id="signUp">Sign Up</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/login_registration.js"></script>
 </body>
 </html>
