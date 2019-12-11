@@ -29,12 +29,38 @@
     	<div class="container">
       		<div class="row">
         		<div class="col-lg-8 mx-auto">
-          			<h2 class="text-white mb-4">Built by RAM Incorporated</h2>
-          			<p class="text-white-50">Alcatraz lets you add user sign-up, sign-in and access control to your web and mobile apps quickly and easily. With Alcatraz you can be sure that all your authentication needs are taken care of with maximum security guranteed.</p>
-        		</div>
+          			<h2 class="text-white mb-2">A RAM Inc Design</h2>
+          			<p class="text-white-50">        		
+          		</div>
       		</div>
     	</div>
-  	</section>
+  	</section> 
+  	
+  	
+ <!-- About Section -->
+  <section id="projects" class="projects-section bg-dark">
+    <div class="container">
+
+      <!-- About Row One -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <img id="cyberpic" class="img-fluid mb-3 mb-lg-0" src="/img/cyber.jpg" alt="">
+        </div>
+        <div class="col-xl-4 col-lg-5">
+           <div class="featured-text text-center text-lg-left">
+            <p class="text-white-50 mb-0">Alcatraz grants developers the ability to effectively and efficiently add user-management features such as,
+              sign-up, sign-in and access control to their web and mobile apps. Utilizing Alcatraz you can rest assured that all your user-management/authentication
+               needs are taken care of in an organized and secure manner.</p>
+          </div>         
+        </div>
+        </div>
+      </div>
+
+
+ 
+  </section>
+  	
+  	
 
   	<!-- Footer -->
   	<footer class="bg-black small text-center text-white-50">
