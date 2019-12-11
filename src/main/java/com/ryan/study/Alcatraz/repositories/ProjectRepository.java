@@ -12,7 +12,8 @@ import com.ryan.study.Alcatraz.models.Project;
 @Repository
 public interface ProjectRepository extends CrudRepository<Project, Long> {
 	List<Project> findAll();
+	Optional<Project> findProjectByProjID(Long projID);
 	Optional<Project> findProjectByProjectName(String projectName);
-	
+
 	List<Project> findAllByDeveloper(Developer dev);
 }

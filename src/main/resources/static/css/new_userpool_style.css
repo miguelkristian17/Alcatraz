@@ -7,7 +7,8 @@ body {
 }
 
 #overlay{
-	background: #8d8d8d;
+	background-color:rgba(0,0,0,0.5);
+	
 }
 
 .navbar{

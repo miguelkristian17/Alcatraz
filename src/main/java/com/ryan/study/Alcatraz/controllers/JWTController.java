@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.ryan.study.Alcatraz.models.Developer;
 import com.ryan.study.Alcatraz.models.Project;
 import com.ryan.study.Alcatraz.models.User;
@@ -39,18 +41,71 @@ public class JWTController {
 		this.userValidator =  userValidator;
 	}
 	@CrossOrigin
-	@RequestMapping(value = "{projectName}/login/{devID}/{userPoolID}", method = RequestMethod.POST)
+	
+//  Registration
+	@RequestMapping(value = "register/{projID}/{devID}/{userPoolID}", method = RequestMethod.POST)
+ 	public HashMap<String, String> createUserToken(
+ 			@PathVariable("devID") Long devID,
+ 			@PathVariable("userPoolID") long userPoolID,
+ 			@PathVariable("projID") Long projID,
+ 			@RequestParam("name") String name,
+ 			@RequestParam("email") String email,
+ 			@RequestParam("password") String password,
+ 			@RequestParam("passwordConfirmation") String passwordConfirmation
+ 			) {
+		HashMap<String, String> hash = new HashMap<>();
+	    hash.put("error", null);
+		Developer developerCheck = developerService.findDeveloperByDevID(devID);
+		UserPool userPool = this.userpoolService.findUserPoolById(userPoolID);
+		Project project = projectService.findProjectByProjID(projID);
+		if(userPool.getProject() == project && developerCheck != null) {
+			User user = this.userService.findUserByEmail(email);
+	        if(user != null) {
+	        	hash.replace("error", "Email already Exists!");
+	            return hash;
+	        }
+	        if(password.equals(passwordConfirmation)){
+	        	String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+	        	User newUser = new User(email, name, hashed);
+	        		try {
+	        			String code = devID.toString();
+	        			String uPool = userPool.getName();
+	        			String userID = user.getUserID().toString();
+	        			Algorithm algorithm = Algorithm.HMAC256(code);
+	        		    String token = JWT.create()
+	        		    		.withClaim("User ID", userID)
+	        		    		.withClaim("User Pool", uPool)
+	        		            .withIssuer("Alcatraz")
+	        		            .sign(algorithm);
+	        		    newUser.setUserpools(userPool);
+	        		    this.userService.createUser(newUser);
+	        		    hash.remove("error");
+	        		    hash.put("token", token);
+	        		    return hash;
+	        		    } catch (JWTCreationException exception){
+	        		    	hash.replace("error", "Incorrect Credentials!");
+	        			    return hash;
+	        			    }	            	
+	        		}
+	        hash.replace("error", "Passwords did not match!");
+	        return hash; 
+	        }
+		hash.replace("error",  "Incorrect Credentials!");
+		return hash;
+		}
+//  Login
+	@RequestMapping(value = "login/{projID}/{devID}/{userPoolID}", method = RequestMethod.POST)
  	public HashMap<String, String> createLoginToken(
  			@PathVariable("devID") Long devID,
  			@PathVariable("userPoolID") long userPoolID,
- 			@PathVariable("projectName") String projectName,
+ 			@PathVariable("projID") long projID,
  			@RequestParam("email") String email,
  			@RequestParam("password") String password
  			) {
 		HashMap<String, String> hash = new HashMap<>();
 		Developer developerCheck = developerService.findDeveloperByDevID(devID);
 		UserPool userPool = this.userpoolService.findUserPoolById(userPoolID);
-		Project project = projectService.findProjectByName(projectName);
+		Project project = projectService.findProjectByProjID(projID);
 	    hash.put("error", null);
 		if(userPool.getProject() == project && developerCheck != null) {
 			User user = this.userService.findUserByEmail(email);
@@ -58,23 +113,29 @@ public class JWTController {
 	        	hash.replace("error", "Email does not exist!");
 	        	return hash;
 	        } else {
-	        	String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
-	        	if(hashed == user.getPassword()) {
+	        	if(BCrypt.checkpw(password, user.getPassword())) {
 	        		try {
 	        			String code = devID.toString();
+	        			String uPool = userPool.getName();
+	        			String userID = String.valueOf(user.getUserID());
 	        			Algorithm algorithm = Algorithm.HMAC256(code);
 	        		    String token = JWT.create()
-	        		    		.withClaim("email", email)
-	        		    		.withClaim("password", password)
-	        		            .withIssuer("auth0")
+	        		    		.withClaim("userID", userID)
+	        		    		.withClaim("User Pool", uPool)
+	        		            .withIssuer("Alcatraz")
 	        		            .sign(algorithm);
-	        		    user.setToken(token);
-	        		    if(token == user.getToken()) {
+	        		    hash.remove("error");
 	        		    hash.put("Token", token);
-	        		    return hash;
+	        		    try {
+	        		    	  java.util.Base64.Decoder decoder = java.util.Base64.getUrlDecoder();
+	        		            String[] parts = token.split("\\.");
+	        		            String payloadJson = new String(decoder.decode(parts[1]));
+	        		            System.out.print(payloadJson);
+	        		    	return hash;
+	        		    } catch (JWTDecodeException exception){
 	        		    }
 	        		} catch (JWTCreationException exception){
-	        			hash.replace("error", "error");
+	        			hash.replace("error", "JWTCreationException Error");
 	        			return hash;
 	        		  }	            	
 	        		} else {
@@ -85,55 +146,5 @@ public class JWTController {
 	    }
 		hash.replace("error", "Incorrect Credentials!");
 			return hash;
-		}
-
-	@RequestMapping(value = "{projectName}/register/{devID}/{userPoolID}", method = RequestMethod.POST)
- 	public HashMap<String, String> createUserToken(
- 			@PathVariable("devID") Long devID,
- 			@PathVariable("userPoolID") long userPoolID,
- 			@PathVariable("projectName") String projectName,
- 			@RequestParam("name") String name,
- 			@RequestParam("email") String email,
- 			@RequestParam("password") String password,
- 			@RequestParam("passwordConfirmation") String passwordConfirmation
- 			) {
-		HashMap<String, String> hash = new HashMap<>();
-	    hash.put("error", null);
-        System.out.println(password);
-        System.out.println(passwordConfirmation);
-		Developer developerCheck = developerService.findDeveloperByDevID(devID);
-		UserPool userPool = this.userpoolService.findUserPoolById(userPoolID);
-		Project project = projectService.findProjectByName(projectName);
-		if(userPool.getProject() == project && developerCheck != null) {
-			User user = this.userService.findUserByEmail(email);
-	        if(user != null) {
-	        	hash.replace("error", "Email already Exists!");
-	            return hash;
-	        }
-	        if(password != null){
-	        	User newUser = new User(email, name, password);
-	        		try {
-	        			String code = devID.toString();
-	        			Algorithm algorithm = Algorithm.HMAC256(code);
-	        		    String token = JWT.create()
-	        		    		.withClaim("email", email)
-	        		    		.withClaim("password", password)
-	        		            .withIssuer("auth0")
-	        		            .sign(algorithm);
-	        		    newUser.setUserpools(userPool);
-	        		    newUser.setToken(token);
-	        		    this.userService.createUser(newUser);
-	        		    hash.put("token", token);
-	        		    return hash;
-	        		} catch (JWTCreationException exception){
-	    	        	hash.replace("error", "Incorrect Credentials!");
-	        			return hash;
-	        		  }	            	
-	         }
-			hash.replace("error", "passwords did not match!");
-			return hash; 
-	    }
-		hash.replace("error",  "Incorrect Credentials!");
-		return hash;
 		}
 }

@@ -24,7 +24,7 @@
         	</button>
     		<div class="collapse navbar-collapse" id="navbarResponsive">
       			<ul class="navbar-nav ml-auto">
-        			<li class="nav-item active">
+        			<li class="nav-item">
           				<a class="nav-link" href="/dashboard">Home</a>
         			</li>
         			<li class="nav-item">
@@ -33,7 +33,7 @@
         			<li class="nav-item">
           				<a class="nav-link" href="/newproj">New Project</a>
         			</li>
-        			<li class="nav-item">
+        			<li class="nav-item active">
           				<a class="nav-link" href="/newup">New User Pool</a>
         			</li>
         			<li class="nav-item">
@@ -48,17 +48,21 @@
 	<div class="container">
   		<div class="card border-0 shadow my-5" id="overlay">
     		<div class="card-body p-5">
-      			<h1 class="display-4">Create a New Userpool</h1>
-      			<div class="row">
+    		<div style = "display: flex; justify-content: center; flex-wrap: wrap;">
+      			<h1 class="display-4" style = "color: #D1D1D1;  font-weight: 450;">Create a New Userpool</h1>
+      			<h4 style = "color: #D1D1D1;  font-weight: 450; display: flex; flex-direction: row; justify-self: center;'"> Create a User Pool by giving it a name and choose the existing project it belongs to!</h4>
+      		</div>
+      		<hr class="my-4">	
+      			<div class="row" style = "display: flex; justify-content: center;">
 					<div class="col-sm-9">
 						<form:form action="/userpools" method="post" modelAttribute="userpools">
 							<div class="form-group">
-								<form:label path="name">User Pool Name</form:label>
+								<form:label style = "color: #D1D1D1; font-size: 24px;" path="name">User Pool Name</form:label>
 					        	<form:errors path="name"/>
 					        	<form:input path="name" class="form-control" id="userpool_name" placeholder="User Pool Name"/>
 							</div>
 							<div class="form-group">
-								<form:label path="project">Project</form:label>
+								<form:label style = "color: #D1D1D1; font-size: 24px;" path="project">Project</form:label>
 								<form:errors path="project"/>
 								<form:select path="project" class="form-control">
 									<c:forEach items = "${allProjects}" var="proj">
@@ -66,7 +70,8 @@
 									</c:forEach>
 								</form:select>
     						</div>
-							<input type="submit" value="Create User Pool!" class="btn btn-md" id="btn-1"/>
+    						<hr class="my-4">
+							<input style = "margin-top: 30px;" type="submit" value="Create User Pool!" class="btn btn-lg" id="btn-1"/>
 						</form:form>
 						<br>
 					</div>

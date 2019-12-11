@@ -26,6 +26,8 @@ public class User {
 	 @NotNull
 	 @Email(message ="Email must be Valid!")
 	 private String email;
+	 @GeneratedValue(strategy=GenerationType.IDENTITY)
+	 private Long userID = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
 	 @NotNull
 	 @Size(min=5,max=200,message="name must be greater than 5 char")
 	 private String name;
@@ -70,6 +72,12 @@ public class User {
 		this.email = email;
 	}
 
+	public Long getUserID() {
+		return userID;
+	}
+	public void setUserID(Long userID) {
+		this.userID = userID;
+	}
 	public String getName() {
 		return name;
 	}

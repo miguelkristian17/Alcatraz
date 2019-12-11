@@ -62,7 +62,15 @@ public class ProjectService {
         	  return null;
         }    
     }
-
+    // Finds a project by long projID 
+    public Project findProjectByProjID(Long projID) {
+        Optional<Project> optionalProject = this.projectRepository.findProjectByProjID(projID);
+        if(optionalProject.isPresent()) {
+            return optionalProject.get();
+        } else {
+            return null;
+        }
+    }
     //Deletes an instance of a project
 	public void  deleteProjectById(Long id){
 		this.projectRepository.deleteById(id);
