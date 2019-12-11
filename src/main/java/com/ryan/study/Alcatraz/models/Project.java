@@ -15,7 +15,6 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name = "projects")
 public class Project {
@@ -26,7 +25,8 @@ public class Project {
     private String projectName;
 	@Size(min=8,max=200,message="Description must be greater than 8 characters!")
     private String description;
-    
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long projID = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="developer_id")
     private Developer developer;
@@ -66,6 +66,12 @@ public class Project {
 	}
 
 	
+	public Long getProjID() {
+		return projID;
+	}
+	public void setProjID(Long projID) {
+		this.projID = projID;
+	}
 	public Developer getDeveloper() {
 		return developer;
 	}
