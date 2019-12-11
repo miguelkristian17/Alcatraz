@@ -1,0 +1,92 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+/* ----------Nav Bar----------  */
+#overlay{
+	background: #8d8d8d;
+}
+
+.navbar{
+	height: 80px;
+}
+
+.navbar-brand{
+	font-size: 50px;
+}
+
+/* ------------BODY-------------*/
+
+ {
+  line-height: 1.5;
+  margin: 30px 0;
+  
+}
+
+.container2{
+	background: linear-gradient(#2f2f2f,#1e1e1e); 
+}
+
+
+#title{
+	display:flex;
+	justify-content:center;
+	color: #d3d3d3;
+	
+}
+
+p a {
+  text-decoration: underline;
+}
+
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #d3d3d3;
+}
+
+
+.post-preview > a {
+  color: #212529;
+}
+
+.post-preview > a:focus, .post-preview > a:hover {
+  text-decoration: none;
+  color: #0085A1;
+}
+
+.post-preview > a > .post-title {
+  font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.post-preview > a > .post-subtitle {
+  font-weight: 300;
+  margin: 0 0 10px;
+}
+
+.post-preview > .post-meta {
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+  color: #868e96;
+}
+
+.post-preview > .post-meta > a {
+  text-decoration: none;
+  color: #212529;
+}
+
+
+
+/*-------FOOTER-----------  */
+footer {
+   padding: 7rem 0; 
+}

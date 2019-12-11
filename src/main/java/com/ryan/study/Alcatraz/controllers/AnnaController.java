@@ -46,6 +46,15 @@ public class AnnaController {
 		return "dashboard.jsp";
 	}
 	
+	@GetMapping("/about")
+	public String aboutPage() {
+		return "about.jsp";
+	}
+	
+	@GetMapping("/docs")
+	public String docsPage() {
+		return "docs.jsp";
+	}
 	@GetMapping("/newproj")
 	public String newProject(@ModelAttribute("projects") Project project) {
 		return "new_project.jsp";
