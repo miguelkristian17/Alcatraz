@@ -27,11 +27,8 @@
         			<li class="nav-item">
           				<a class="nav-link" href="/about">About</a>
         			</li>
-        			<li class="nav-item active">
-          				<a class="nav-link" href="/newproj">New Project</a>
-        			</li>
-        			<li class="nav-item">
-          				<a class="nav-link" href="/newup">New User Pool</a>
+        			<li class="nav-item disabled">
+          				<a class="nav-link" href="/docs">Docs</a>
         			</li>
         			<li class="nav-item">
           				<a class="nav-link" href="/home">Logout</a>

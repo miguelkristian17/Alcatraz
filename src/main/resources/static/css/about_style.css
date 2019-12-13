@@ -58,9 +58,7 @@ h6 {
 	background: #8d8d8d;
 }
 
-.navbar{
-	height: 80px;
-}
+
 
 .navbar-brand{
 	font-size: 50px;
@@ -167,3 +165,4 @@ header.masthead .masthead-content .masthead-heading {
 .btn-secondary:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
 }
+

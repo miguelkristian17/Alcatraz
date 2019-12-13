@@ -28,7 +28,7 @@
         			<li class="nav-item">
           				<a class="nav-link" href="/about">About</a>
         			</li>
-         			<li class="nav-item">
+         			<li class="nav-item disabled">
           				<a class="nav-link" href="/docs">Docs</a>
         			</li>
         			<li class="nav-item">

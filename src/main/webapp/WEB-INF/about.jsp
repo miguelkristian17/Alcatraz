@@ -72,21 +72,14 @@
         	</button>
     		<div class="collapse navbar-collapse" id="navbarResponsive">
       			<ul class="navbar-nav ml-auto">
-        			<li class="nav-item active">
+        			<li class="nav-item">
           				<a class="nav-link" href="/dashboard">Home</a>
         			</li>
         			<li class="nav-item">
-          				<a class="nav-link" href="/about">About</a>
+          				<a class="nav-link active" href="/about">About</a>
         			</li>
         			<li class="nav-item">
-          				<a class="nav-link" href="/newproj">New Project</a>
-        			</li>
-        			<li class="nav-item">
-          				<a class="nav-link" href="/newup">New User Pool</a>
-        			</li>
-        			
-        			<li class="nav-item">
-          				<a class="nav-link" href="/docs">Documentation</a>
+          				<a class="nav-link disabled" href="/docs">Docs</a>
         			</li>
         			
         			<li class="nav-item">
@@ -121,10 +114,11 @@
         <div class="col-lg-6 order-lg-1">
           <div class="p-4">
             <h2 class="display-4">Welcome To The Rock!</h2>
-            <p>Alcatraz is a service designed to provide web developers secure authentication and user management for their web apps. 
-            It was our goal to  implement a service that clones some of the key features of the popular AWS Cognito, but do so in a manner that is more user friendly and time 
-            efficient for small or independent development companies. Alcatraz oversees user management features such as sign-up, sign-in, and access control, so that developers
-             can focus on other key components and features of the web and mobile applications they are tasked to design.
+            <p>Alcatraz was designed to provide web developers a secure authentication and user management system for their web
+             applications. The goal of Alcatraz was to implement a service that replicated some key features of AWS Cognito, but that
+              does so in a manner that is more user friendly and time efficient for small, independent companies. Alcatraz oversees user
+               management features such as sign-up, sign-in and access control so developers can focus on other key components and features of 
+               the web and mobile applications they are tasked with designing. 
             <br>
             <br>
             "Alcatraz... efficiency, security, integrity"
@@ -146,14 +140,14 @@
         <div class="col-lg-6">
           <div class="p-5">
             <h2 class="display-5">How It Works</h2>
-            <p>After creating a developer account, you will receive a unique Developer ID. Once you have your Developer ID, you will have the option to create a new project as well as
-             implement user-pools into this project with custom preferences. Once you have successfully created your custom project and the prerequisites for your user-pool, we will then
-              generate unique ID's for both the user-pool and project. Once all ID's have been generated, your work is done, you simply paste the unique URL into your route.
-               For example: "login/yourProjectID/yourDeveloperID/yourUserPoolID". 
-               <br>
-				This route will travel to the Alcatraz server. We will authenticate the information in our database as well as create or update the information. If the information is 
-				processed without any errors, we will return a secure JSON token back to you. This token will act as the user in sessions "Hall-Pass,” separating Administrators actions
-				 and functionality they are allowed on your site from regular users, as well as Logging Users in and out and otherwise keeping track of the users and their information. 
+            <p>Begin by creating a developer account, after which you will receive a unique developer ID. With your developer ID, you will 
+            have the option to create new projects as well as implement user-pools for those projects with custom preferences. Upon the 
+            successful creation of projects as well as implementation of prerequisites for your user-pool, Alcatraz will generate unique 
+            ID’s for both the user-pool and projects themselves. After the ID’s are generated, you simply paste the unique URL into your 
+            route and your work is done! This route will travel to the Alcatraz server, at which point all the information will be 
+            authenticated. If there are no errors present in the information, we will return a secure JSON token back to you. This 
+            token will act as a pseudo hall pass for the user who is visiting your site, they will be logged in/out, separating the
+             administrators actions from those of the users. 
  			</p>
           </div>
         </div> 
@@ -172,8 +166,9 @@
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
             <h2 class="display-4">Designed with Dev's In Mind </h2>
-            <p>Our goal is to be a resource for self employed or small business developers, who develop multiple applications throughout the year. Clientele growth directly correlates 
-            with your responsibility to manage their ever changing user pools. We are here to alleviate some of that stress so you can focus on growing your company and doing what you love.  </p>
+            <p>Alcatraz was built to be a resource for self employed and small business developers, who build multiple applications
+             throughout the year. As your clientele base grows so does your responsibility to manage their ever changing user pools. 
+             We are here to alleviate some of that stress so you can focus on growing your company and doing what you love.  </p>
           </div>
         </div>
       </div>
@@ -190,6 +185,10 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  	
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

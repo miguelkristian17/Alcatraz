@@ -20,17 +20,14 @@
         	</button>
     		<div class="collapse navbar-collapse" id="navbarResponsive">
       			<ul class="navbar-nav ml-auto">
-        			<li class="nav-item active">
+        			<li class="nav-item">
           				<a class="nav-link" href="/dashboard">Home</a>
         			</li>
         			<li class="nav-item">
           				<a class="nav-link" href="/about">About</a>
         			</li>
         			<li class="nav-item">
-          				<a class="nav-link" href="/newproj">New Project</a>
-        			</li>
-        			<li class="nav-item">
-          				<a class="nav-link" href="/newup">New User Pool</a>
+          				<a class="nav-link disabled" href="/docs">Docs</a>
         			</li>
         			<li class="nav-item">
           				<a class="nav-link" href="/home">Logout</a>

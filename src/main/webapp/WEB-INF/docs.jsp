@@ -22,21 +22,14 @@
         	</button>
     		<div class="collapse navbar-collapse" id="navbarResponsive">
       			<ul class="navbar-nav ml-auto">
-        			<li class="nav-item active">
+        			<li class="nav-item">
           				<a class="nav-link" href="/dashboard">Home</a>
         			</li>
         			<li class="nav-item">
           				<a class="nav-link" href="/about">About</a>
         			</li>
         			<li class="nav-item">
-          				<a class="nav-link" href="/newproj">New Project</a>
-        			</li>
-        			<li class="nav-item">
-          				<a class="nav-link" href="/newup">New User Pool</a>
-        			</li>
-        			
-        			<li class="nav-item">
-          				<a class="nav-link" href="/docs">Documentation</a>
+          				<a class="nav-link active" href="/docs">Docs</a>
         			</li>
         			
         			<li class="nav-item">
@@ -56,9 +49,9 @@
           <br>
           <br>
             <h2 class="post-title">
-              Section Headings
+              Coming Soon
             </h2>
-             <h5 class="post-subtitle">
+           <!--   <h5 class="post-subtitle">
               Many say exploration is part of our destiny, but it’s actually our duty to future generations.
             </h5>
         </div>
@@ -79,10 +72,31 @@
             </h2>
              <h5 class="post-subtitle">
               Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-            </h5>
+            </h5> -->
         </div>
         
   	
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br><br>
+  	<br>
+  	<br>
+  	<br><br>
+
+  	<br>
+  	<br>
+  	<br>
+
+  	<br>
   	
 
   	<!-- Footer -->
@@ -93,11 +107,14 @@
   	</footer>
   	
   	<!-- Bootstrap core JavaScript -->
+  	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   	<script src="vendor/jquery/jquery.min.js"></script>
   	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   	<!-- Plugin JavaScript -->
-  	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
  	<!-- Custom scripts for this template -->
   	<script src="js/grayscale.min.js"></script>
