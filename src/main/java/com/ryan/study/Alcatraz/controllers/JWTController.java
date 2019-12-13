@@ -54,23 +54,32 @@ public class JWTController {
  			@RequestParam("passwordConfirmation") String passwordConfirmation
  			) {
 		HashMap<String, String> hash = new HashMap<>();
+		System.out.println("1");
 	    hash.put("error", null);
-		Developer developerCheck = developerService.findDeveloperByDevID(devID);
-		UserPool userPool = this.userpoolService.findUserPoolById(userPoolID);
-		Project project = projectService.findProjectByProjID(projID);
+	    System.out.println("test");
+	    Developer developerCheck = developerService.findDeveloperByDevID(devID);
+	    System.out.println("2");
+	    UserPool userPool = this.userpoolService.findUserPoolById(userPoolID);
+	    System.out.println("3");
+	    Project project = projectService.findProjectByProjID(projID);
 		if(userPool.getProject() == project && developerCheck != null) {
+			System.out.println("Hello");
 			User user = this.userService.findUserByEmail(email);
 	        if(user != null) {
 	        	hash.replace("error", "Email already Exists!");
 	            return hash;
 	        }
+	        System.out.println("Hello");
 	        if(password.equals(passwordConfirmation)){
 	        	String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+	        	System.out.println("test");
 	        	User newUser = new User(email, name, hashed);
-	        		try {
+	        	System.out.println("test2");
+
+	        	try {
 	        			String code = devID.toString();
 	        			String uPool = userPool.getName();
-	        			String userID = user.getUserID().toString();
+	        			String userID = newUser.getUserID().toString();
 	        			Algorithm algorithm = Algorithm.HMAC256(code);
 	        		    String token = JWT.create()
 	        		    		.withClaim("User ID", userID)

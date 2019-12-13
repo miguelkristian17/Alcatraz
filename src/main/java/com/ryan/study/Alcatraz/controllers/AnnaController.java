@@ -37,7 +37,7 @@ public class AnnaController {
 	}
 	
 	@GetMapping("/dashboard")
-	public String dashboard(HttpSession session, Model model, @ModelAttribute("project") Project project) {
+	public String dashboard(HttpSession session, Model model, @ModelAttribute("project") Project project, @ModelAttribute("userpools") UserPool userpool) {
 		Long developerId = (Long) session.getAttribute("developerId");
 		Developer d = developerService.findDeveloperById(developerId);
 		model.addAttribute("developer", d);

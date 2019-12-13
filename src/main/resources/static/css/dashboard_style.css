@@ -6,13 +6,23 @@ body {
   -o-background-size: cover;
 }
 
+#overlays{
+	background: white;	
+	padding: 30px;
+  box-shadow: 5px 10px #888888;
+	
+	
+}
 #overlay{
-	background: #8d8d8d;
+	background-color:rgba(0,0,0,0.5);
+	padding: 30px;
+	
 }
 
-.navbar{
+/* .navbar{
 	height: 80px;
 }
+ */
 
 .navbar-brand{
 	font-size: 50px;
@@ -27,4 +37,3 @@ body {
 h2{
 	font-size: 18px;
 }
-
