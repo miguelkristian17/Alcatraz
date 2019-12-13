@@ -45,7 +45,7 @@
             <h1 class="navbar-brand" >Welcome, <c:out value="${developer.name}"/>!</h1>            
             <a href="/newproj" style = "height: 50px;"class="btn btn-lg" id="btn-1"><i class="fas fa-download fa-sm text-white-50"></i> Add project</a> 
           </div>
-     <h2 class="display-6">ID Number: <c:out value="${developer.devID}"/></h2>
+     <h2 class="display-6">Developer ID: <c:out value="${developer.devID}"/></h2>
      </div>  
      <c:choose>
     <c:when test="${fn:length(projects) gt 0}">
@@ -58,7 +58,7 @@
                   </div>
                   <div class="card-body">
                   <p> <c:out value="${project.description}"/></p>
-                  <h2 class="display-6">ID Number: <c:out value="${project.projID}"/></h2>
+                  <h2 class="display-6">Project ID: <c:out value="${project.projID}"/></h2>
                   	<button data-toggle="modal" data-target=".bd-example-modal-lg" class="btn" role="button">Add User Pool</button>
                   </div>
               </div>
@@ -70,8 +70,9 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class=" font-weight-bold text-uppercase mb-4" ><a href="/up/${pu.id} "><c:out value="${pu.name}"/></a> </div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"> 22 </div>
+                      <div class=" font-weight-bold text-uppercase mb-1" ><a style = "font-size: 20px;"href="/up/${pu.id} "><c:out value="${pu.name}"/></a> </div>
+                      <h2 class="display-6">User Pool ID: <c:out value="${pu.id}"/></h2>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Users : ${fn:length(pu.users)} </div>
                     </div>
                     <div class="col-auto">
                     <i class="far fa-address-book fa-2x text-gray-300"></i>

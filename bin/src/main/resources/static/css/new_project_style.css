@@ -1,0 +1,28 @@
+body {
+  background: url("/img/alcatraz.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  
+}
+
+#overlay{
+	background-color:rgba(0,0,0,0.5);
+	margin-bottom: -40px;
+
+}
+
+.navbar{
+	height: 80px;
+}
+
+.navbar-brand{
+	font-size: 50px;
+}
+
+#btn-1{
+	background: rgba(67, 128, 55, 0.92);
+	color: white;	
+}
+

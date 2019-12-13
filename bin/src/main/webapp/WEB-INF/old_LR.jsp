@@ -20,7 +20,7 @@
 			<p><form:errors path="user.*"/></p>
 			<div class="row">
 				<div class="col-sm-9">
-					<form:form action="/registration" method="post" modelAttribute="user">
+					<form:form action="/registration" method="post" modelAttribute="developer">
 						<div class="form-group">
 							 <form:label path="name">Name:</form:label>
 	           				 <form:input path="name" class="form-control"/>
@@ -37,11 +37,12 @@
 							<form:label path="passwordConfirmation">Password Confirmation:</form:label>
             				<form:password path="passwordConfirmation" class="form-control"/>
 						</div>
-						<input type="submit" value="Register!" class="btn btn-md btn-success"/>
+						<input type="submit" value="Register!" class="btn btn-md" id="btn-1"/>
 					</form:form>
 				</div>
 			</div>
 		</div>
+		<div id="middle"></div>
 		<div id="login">
 			<h1 class="display-4">Login</h1>
 			<p><c:out value="${error}"/></p>
@@ -56,7 +57,7 @@
 							<label for="password">Password: </label>
             				<input type="password" id="password" name="password" class="form-control"/>
 						</div>
-						<input type="submit" value="Login!" class="btn btn-md btn-danger"/>
+						<input type="submit" value="Login!" class="btn btn-md" id="btn-2"/>
 					</form>
 				</div>
 			</div>
