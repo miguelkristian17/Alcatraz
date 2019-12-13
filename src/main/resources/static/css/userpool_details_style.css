@@ -7,7 +7,8 @@ body {
 }
 
 #overlay{
-	background: #8d8d8d;
+	background: rgba(0,0,0,0.80);
+	margin-bottom: -40px;
 }
 
 .navbar{
@@ -23,3 +24,26 @@ body {
 	color: white;	
 }
 
+h1, h2{
+	color: white;
+	display: flex;
+	justify-content: center;
+}
+
+td{
+	color: white;
+}
+
+th{
+	color: white;
+}
+
+.row{
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+h2{
+	font-size: 30px;
+}
