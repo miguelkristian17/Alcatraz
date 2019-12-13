@@ -45,6 +45,7 @@
   		<div class="card border-0 shadow my-5" id="overlay">
     		<div class="card-body p-5">
       			<h1 class="display-4">User Pool: <c:out value="${userpool.name}"/></h1>
+      			<h2 class="display-6">User Pool ID: <c:out value="${userpool.id}"/></h2>
       			<div class="row">
 					<div class="col-sm-9">
 						<table class="table table-striped">
