@@ -28,8 +28,8 @@
         			<li class="nav-item">
           				<a class="nav-link" href="/about">About</a>
         			</li>
-         			<li class="nav-item disabled">
-          				<a class="nav-link" href="/docs">Docs</a>
+         			<li class="nav-item ">
+          				<a class="nav-link disabled" href="/docs">Docs</a>
         			</li>
         			<li class="nav-item">
           				<a class="nav-link" href="/home">Logout</a>
@@ -42,7 +42,7 @@
 	<div class="container">
 	<div class="card border-0 shadow my-5" id="overlays">
           <div class="row" style = "display:flex; flex-direction:row; justify-content: space-between;">   
-            <h1 class="navbar-brand" >Welcome, <c:out value="${developer.name}"/>!</h1>            
+            <h1 style = "word-wrap: break-word;"text"class="navbar-brand" >Welcome, <c:out value="${developer.name}"/>!</h1>            
             <a href="/newproj" style = "height: 50px;"class="btn btn-lg" id="btn-1"><i class="fas fa-download fa-sm text-white-50"></i> Add project</a> 
           </div>
      <h2 class="display-6">Developer ID: <c:out value="${developer.devID}"/></h2>

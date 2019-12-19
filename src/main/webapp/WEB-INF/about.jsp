@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="/css/about_style.css">
 
 <title>
-    One Page Wonder - Theme Preview - Start Bootstrap
+    About
   </title>
 
 <meta name="description" content="">
@@ -94,7 +94,7 @@
     <div class="masthead-content">
       <div class="container">
         <h1 class="masthead-heading mb-0" style="color:lightgrey;">-Alcatraz-</h1>
-        <h4>"Efficiency,Security,Integrity"</h4>
+        <h4 style = "font-family : 'Arial'; font-style: italic;font-weight: 100;" >"Efficiency, Security, Integrity"</h4>
       </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>
@@ -113,7 +113,7 @@
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-4">
-            <h2 class="display-4">Welcome To The Rock!</h2>
+            <h2 class="display-4">Welcome to the Rock!</h2>
             <p>Alcatraz was designed to provide web developers a secure authentication and user management system for their web
              applications. The goal of Alcatraz was to implement a service that replicated some key features of AWS Cognito, but that
               does so in a manner that is more user friendly and time efficient for small, independent companies. Alcatraz oversees user
@@ -121,8 +121,8 @@
                the web and mobile applications they are tasked with designing. 
             <br>
             <br>
-            "Alcatraz... efficiency, security, integrity"
-              .</p>
+            "Alcatraz...Efficiency, Security, Integrity"
+              </p>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
         </div>
         <div class="col-lg-6">
           <div class="p-5">
-            <h2 class="display-5">How It Works</h2>
+            <h2 class="display-4">How It Works</h2>
             <p>Begin by creating a developer account, after which you will receive a unique developer ID. With your developer ID, you will 
             have the option to create new projects as well as implement user-pools for those projects with custom preferences. Upon the 
             successful creation of projects as well as implementation of prerequisites for your user-pool, Alcatraz will generate unique 
@@ -165,9 +165,9 @@
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="display-4">Designed with Dev's In Mind </h2>
+            <h2 class="display-4">Designed with Devs In Mind </h2>
             <p>Alcatraz was built to be a resource for self employed and small business developers, who build multiple applications
-             throughout the year. As your clientele base grows so does your responsibility to manage their ever changing user pools. 
+             throughout the year. As your clientele base grows, so does your responsibility to manage their ever changing user pools. 
              We are here to alleviate some of that stress so you can focus on growing your company and doing what you love.  </p>
           </div>
         </div>
